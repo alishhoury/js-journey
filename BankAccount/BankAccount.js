@@ -1,4 +1,6 @@
 class BankAccount {
+   static mainAccount = new BankAccount("Main", 0);
+
   constructor(ownerName, initialBalance) {
     this.ownerName = ownerName;
     this.balance = initialBalance;
@@ -19,6 +21,7 @@ class BankAccount {
       console.log("insufficient Balance");
     } else if (amount > 0 && amount <= this.balance) {
       this.balance -= amount;
+      BankAccount.mainAccount.balance += 1;
       this.history.push(`withdrew: $${amount}`);
     }
   }
@@ -30,6 +33,7 @@ class BankAccount {
     } else if (amount <= this.balance && amount > 0) {
       this.balance -= amount;
       anotherAccount.balance += amount;
+      BankAccount.mainAccount.balance += 1;
       this.history.push(
         `Transferred $${amount} to $${anotherAccount.ownerName}`
       );
@@ -61,6 +65,7 @@ acc1.printHistory();
 
 console.log(acc1.getSummary());
 console.log(acc2.getSummary());
+console.log(BankAccount.mainAccount.getSummary());
 
 // TIme complexity of the code is O(1) for all methods but in rare cases methods that use the history array
 // will have a time complexity of O(n)where n is the number of transactions in the history array.
