@@ -71,3 +71,19 @@ body {
   .task-list li:hover {
     background: #e0e0e0;
   }
+  .done-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 0.3rem;
+}
+
+.done-btn:hover {
+    color: green;
+}
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
