@@ -1,4 +1,3 @@
-
 const taskInput = document.querySelector(".task-input");
 const addButton = document.querySelector(".add-btn");
 const taskList = document.querySelector(".task-list");
@@ -19,8 +18,15 @@ addButton.addEventListener("click", () => {
       taskSpan.classList.toggle("done");
     });
 
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "🗑️";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", () => {
+      listItem.remove();
+    });
     listItem.appendChild(taskSpan);
     listItem.appendChild(doneButton);
+    listItem.appendChild(deleteButton);
     taskList.appendChild(listItem);
     taskInput.value = "";
   }
