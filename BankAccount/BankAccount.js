@@ -62,3 +62,6 @@ acc1.printHistory();
 console.log(acc1.getSummary());
 console.log(acc2.getSummary());
 
+// TIme complexity of the code is O(1) for all methods but in rare cases methods that use the history array
+// will have a time complexity of O(n)where n is the number of transactions in the history array.
+// due to the need to resize the array when it grows beyond its current capacity.
